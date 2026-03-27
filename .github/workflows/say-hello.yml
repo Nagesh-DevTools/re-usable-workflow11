@@ -1,0 +1,14 @@
+name: Shared Hello Workflow
+
+on:
+  workflow_call: # This is the "magic" trigger that makes it a library
+    inputs:
+      username:
+        required: true
+        type: string
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello ${{ inputs.username }}, this is a Reusable Workflow!"
