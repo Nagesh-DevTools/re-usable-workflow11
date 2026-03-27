@@ -1,10 +1,11 @@
-name: App Pipeline
+name: Test My Library locally
 
-on: [push]
+on: 
+  workflow_dispatch: # This gives you a "Run" button in the UI
 
 jobs:
-  call-shared-library:
-    # Syntax: {owner}/{repo}/.github/workflows/{filename}@{ref}
-    uses: your-org/central-ci/.github/workflows/say-hello.yml@main
+  call-local-library:
+    # Since it's in the same repo, you just point to the file path
+    uses: ./.github/workflows/say-hello.yml 
     with:
       username: "Bro"
