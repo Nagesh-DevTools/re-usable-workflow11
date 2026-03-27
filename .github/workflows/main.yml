@@ -1,0 +1,10 @@
+name: App Pipeline
+
+on: [push]
+
+jobs:
+  call-shared-library:
+    # Syntax: {owner}/{repo}/.github/workflows/{filename}@{ref}
+    uses: your-org/central-ci/.github/workflows/say-hello.yml@main
+    with:
+      username: "Bro"
