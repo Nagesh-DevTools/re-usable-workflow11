@@ -1,14 +1,16 @@
-name: Shared Hello Workflow
+# This replaces your vars/sayHello.groovy
+name: Shared Library Helper
 
 on:
-  workflow_call: # This is the "magic" trigger that makes it a library
+  workflow_call:
     inputs:
-      username:
+      name:
         required: true
         type: string
 
 jobs:
-  greet:
+  say-hi:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello ${{ inputs.username }}, this is a Reusable Workflow!"
+      - name: Run Greeting
+        run: echo "Hello ${{ inputs.name }}, this is from the shared library!"
